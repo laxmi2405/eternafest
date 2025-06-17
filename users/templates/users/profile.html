@@ -1,0 +1,53 @@
+{% extends 'events/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">My Profile</h2>
+
+    <div class="card p-3">
+        <h4>👤 {{ request.user.username }}</h4>
+        <p>Email: {{ request.user.email }}</p>
+        <p>Name: {{ request.user.first_name }} {{ request.user.last_name }}</p>
+        <a href="{% url 'users:edit_profile' %}" class="btn btn-primary mt-2">Edit Profile</a>
+    </div>
+
+    {% if upcoming %}
+    <div class="alert alert-warning mt-3">
+        ⏰ You have an upcoming event within 24 hours!
+    </div>
+    {% endif %}
+
+    <hr>
+
+    <h4 class="mt-4">📅 My Bookings</h4>
+    {% if bookings %}
+        <ul class="list-group">
+            {% for booking in bookings %}
+                <li class="list-group-item">
+                    <strong>{{ booking.event.name }}</strong> – {{ booking.date }}
+                    <span class="text-muted">at {{ booking.event.venue }}</span>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No bookings yet.</p>
+    {% endif %}
+
+    <hr>
+
+    <h4 class="mt-4">🔖 Saved Events</h4>
+    {% if saved_events %}
+        <ul class="list-group">
+            {% for event in saved_events %}
+                <li class="list-group-item">
+                    <strong>{{ event.name }}</strong> – {{ event.date }}
+                    <a href="{% url 'event:event_detail' event.id %}" class="btn btn-sm btn-outline-primary float-end">View</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No saved events yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,104 @@
+/* ================= LOGIN PAGE STYLING ================= */
+.login-page {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url("/static/events/images/hero-bg.jpeg") no-repeat center center/cover;
+}
+
+/* Blurred Background Effect */
+.login-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit; /* Inherit background image */
+    filter: blur(5px); /* Apply blur only to background */
+    z-index: 1; /* Keep it behind */
+}
+
+/* Login Container */
+.login-container {
+    position: relative;
+    z-index: 2; /* Keep the login box sharp and clear */
+    background: rgba(0, 0, 0, 0.75);
+    padding: 30px;
+    width: 350px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Input Fields */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #ddd;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+}
+
+/* Login Button */
+.login-btn {
+    background-color: #ff4d6d;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #e63c5a;
+}
+
+/* ================= HOMEPAGE STYLING ================= */
+body {
+    background: black; /* Gradient Background */
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Dashboard Container */
+.container {
+    background: rgba(255, 255, 255, 0.1); /* Transparent White */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer Styling */
+footer {
+    background: black;
+    padding: 15px;
+    margin-top: 40px; /* Space between buttons and footer */
+    text-align: center;
+    color: white;
+}
+.dashboard-footer {
+    margin-top: 30px;
+}
+
+
